@@ -3,6 +3,8 @@ Kinect22Scratch
 
 Kinect2 -> Scratch
 
+https://twitter.com/kaorun55/status/408719960853082112
+
 
 ## Requirements
 
