@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>ScratchNet</id>
+    <version>1.0.0.0</version>
+    <title>ScratchNet</title>
+    <authors>kaorun55</authors>
+    <owners>kaorun55</owners>
+    <licenseUrl>https://github.com/kaorun55/ScratchNet/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/kaorun55/ScratchNet</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Scratch Communicate Library</description>
+    <releaseNotes />
+    <copyright />
+    <language>ja-JP</language>
+    <tags>scratch</tags>
+  </metadata>
+</package>
