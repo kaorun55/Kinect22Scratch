@@ -171,6 +171,20 @@ namespace Kinect22Scratch
                         AddSensorValue( jointType, "Y", (int)(joint.Position.Y * scale) );
                     }
                 }
+
+                if ( body.HandLeftConfidence == TrackingConfidence.High ) {
+                    AddSensorValue( "HandLeftState", body.HandLeftState.ToString() );
+                }
+                else {
+                    AddSensorValue( "HandLeftState", HandState.Unknown.ToString() );
+                }
+
+                if ( body.HandRightConfidence == TrackingConfidence.High ) {
+                    AddSensorValue( "HandRightState", body.HandRightState.ToString() );
+                }
+                else {
+                    AddSensorValue( "HandRightState", HandState.Unknown.ToString() );
+                }
             }
             else {
                 foreach ( JointType jointType in Enum.GetValues(typeof(JointType) ) ) {
@@ -179,6 +193,9 @@ namespace Kinect22Scratch
                         AddSensorValue( jointType, "Y", 0 );
                     }
                 }
+
+                AddSensorValue( "HandLeftState", HandState.Unknown.ToString() );
+                AddSensorValue( "HandRightState", HandState.Unknown.ToString() );
             }
 
             scratch.UpdateSensor();
@@ -188,6 +205,11 @@ namespace Kinect22Scratch
         {
             var key = string.Format( "{0}_{1}", jointType.ToString(), x );
             scratch.AddSensorValue( key, value.ToString() );
+        }
+
+        private void AddSensorValue( string key, string value )
+        {
+            scratch.AddSensorValue( key, value );
         }
 
         private void ShowJoint( CoordinateMapper mapper, Joint joint )
