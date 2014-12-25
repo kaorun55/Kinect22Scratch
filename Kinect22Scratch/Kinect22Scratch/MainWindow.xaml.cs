@@ -54,11 +54,7 @@ namespace Kinect22Scratch
 
         private void StartKinect()
         {
-            kinect= KinectSensor.Default;
-            if ( (kinect == null) || (kinect.Status != KinectStatus.Connected) ) {
-                throw new Exception( "Kinect is not connected.+" + kinect.Status.ToString() );
-            }
-
+            kinect= KinectSensor.GetDefault();
             kinect.Open();
 
             depthReader = kinect.DepthFrameSource.OpenReader();
@@ -85,14 +81,6 @@ namespace Kinect22Scratch
             if ( kinect != null ) {
                 kinect.Close();
                 kinect = null;
-            }
-
-            if ( bodies != null ) {
-                foreach ( var body in bodies ) {
-                    if ( body != null ) {
-                        body.Dispose();
-                    }
-                }
             }
         }
 
@@ -188,10 +176,8 @@ namespace Kinect22Scratch
             }
             else {
                 foreach ( JointType jointType in Enum.GetValues(typeof(JointType) ) ) {
-                    if ( jointType != JointType.Count ) {
-                        AddSensorValue( jointType, "X", 0 );
-                        AddSensorValue( jointType, "Y", 0 );
-                    }
+                    AddSensorValue( jointType, "X", 0 );
+                    AddSensorValue( jointType, "Y", 0 );
                 }
 
                 AddSensorValue( "HandLeftState", HandState.Unknown.ToString() );
